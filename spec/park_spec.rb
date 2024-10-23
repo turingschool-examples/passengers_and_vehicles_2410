@@ -13,7 +13,7 @@ RSpec.describe Park do
             expect(park1).to be_a Park
         end
 
-        it "created park with correct name, and addmission price" do
+        it "park is created with a name and default addmission price" do
             park1 = Park.new("Yellowstone")
             expect(park1.name).to eq("Yellowstone")
             expect(park1.price).to eq(22)
@@ -65,7 +65,21 @@ RSpec.describe Park do
             expect(park1.revenue).to eq(0)
         end
 
-        it "confirms the revenue generated after passengers have entered the park" do
+        it "confirms revenue is being generated as vehicles enter the park" do
+            park1 = Park.new("Yellowstone")
+            vehicle1 = Vehicle.new("2001", "Honda", "Civic")
+            vehicle2 = Vehicle.new("2013", "Lexus", "IS250")
+            charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+            jude = Passenger.new({"name" => "Jude", "age" => 20}) 
+            vehicle1.add_passenger(charlie)
+            vehicle2.add_passenger(jude)
+            expect(park1.revenue).to eq(0)
+            park1.vehicle_enter_park(vehicle1)
+            park1.vehicle_enter_park(vehicle2)
+            expect(park1.revenue).to eq(44)
+        end
+
+        it "confirms park is not charging for minor passengers to enter the park" do
             park1 = Park.new("Yellowstone")
             vehicle1 = Vehicle.new("2001", "Honda", "Civic")
             vehicle2 = Vehicle.new("2013", "Lexus", "IS250")

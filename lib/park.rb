@@ -35,7 +35,7 @@ class Park
 
     def all_adults
         all_adult_visitors = passengers_entered.select do |passenger|
-            passenger.age >= 18
+            passenger.adult?
         end
         all_adult_names = all_adult_visitors.map do |passenger|
             passenger.name
@@ -44,7 +44,7 @@ class Park
 
     def all_minors
         all_minor_visitors = passengers_entered.select do |passenger|
-            passenger.age < 18
+            passenger.adult? == false
         end
         all_minor_names = all_minor_visitors.map do |passenger|
             passenger.name

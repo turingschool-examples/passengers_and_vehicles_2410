@@ -27,7 +27,7 @@ class Vehicle
     def num_adults
         @adults = 0
         passengers.each do |passenger|
-            if passenger.age >= 18
+            if passenger.adult?
                 @adults += 1
             end
         end
