@@ -42,4 +42,16 @@ class NationalPark
 
     everyone.sort
   end
+
+  def list_minors
+    minors = []
+
+    @entered_passengers.each do |passenger|
+      if !passenger.adult?
+        minors << passenger.name
+      end
+    end
+
+    minors.sort
+  end
 end
