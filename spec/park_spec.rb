@@ -104,8 +104,8 @@ RSpec.describe Passenger do
       @civic.add_passenger(Passenger.new({"name" => "Mazie", "age" => 7}))
     end
     describe "#alphabetize" do
-      it "has all_attendees default to empty" do 
-        expect(@rocky_mountain.all_attendees).to be_empty
+      it "has abc_attendees default to empty" do 
+        expect(@rocky_mountain.abc_attendees).to be_empty
       end
 
       it "can add attendees to abc_attendees from admitted_passengers" do
@@ -116,6 +116,7 @@ RSpec.describe Passenger do
 
       it "can alphabetize abc_attendees" do
         @rocky_mountain.admit_vehicle(@civic)
+        
         expect(@rocky_mountain.abc_attendees).to eq(["Charlie", "Jude", "Kim", "Mazie", "Taylor"])
 
         @rocky_mountain.admit_vehicle(@impreza)

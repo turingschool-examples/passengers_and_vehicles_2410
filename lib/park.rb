@@ -54,8 +54,6 @@ class Park
   end
 
   def alphabetize(attendees_list)
-    attendees_list.each do |attendee|
-     
-    end
+    attendees_list = attendees_list.sort
   end
 end
