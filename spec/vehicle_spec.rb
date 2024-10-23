@@ -1,6 +1,10 @@
-require '.lib/vehicle'
+require_relative '../lib/vehicle'
 
-Rspec.describe Vehicle do
+RSpec.configure do |config|
+    config.formatter = :documentation
+  end
+
+RSpec.describe Vehicle do
     describe "#initialization" do
         it "exists" do 
             vehicle = Vehicle.new("2001", "Honda", "Civic")    
