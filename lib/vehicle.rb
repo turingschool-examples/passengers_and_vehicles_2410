@@ -1,5 +1,5 @@
 class Vehicle
-    attr_reader :year, :make, :model, :speeding
+    attr_reader :year, :make, :model, :speeding, :passengers
 
     def initialize(year, make, model)
         @year = year.to_s
