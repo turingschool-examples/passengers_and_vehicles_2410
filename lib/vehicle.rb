@@ -1,3 +1,5 @@
+require 'pry'
+
 class Vehicle
     attr_reader :year, :make, :model, :speeding, :passengers
 
@@ -24,5 +26,12 @@ class Vehicle
     end
 
     def num_adults
+        counter = 0
+        passengers.each do |passenger|
+            if passenger.age >= 18
+                counter += 1
+            end
+        end
+        return counter
     end
 end
