@@ -6,9 +6,16 @@ class Vehicle
         @make = make.to_s
         @model = model.to_s
         @speeding = false
+        @passengers = []
     end
 
     def speeding?
         @speeding
+    end
+
+    def speed
+        if @speeding == false
+            @speeding = true
+        end
     end
 end
