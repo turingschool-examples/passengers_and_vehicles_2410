@@ -6,4 +6,12 @@ class Park
         @price = price
         @vehicles = []
     end
+
+    def add_vehicle(vehicle)
+        @vehicles << vehicle
+    end
+
+    def entered_vehicles
+        @vehicles
+    end
 end
