@@ -152,7 +152,7 @@ describe 'Iteration 3' do
       park.add_vehicle(@vehicle)
 
 
-      expect(park.minors).to eq("Bob", "Taylor")
+      expect(park.minors).to eq(["Bob", "Taylor"])
     end
 
     it "17. Park #adults" do 
@@ -167,7 +167,7 @@ describe 'Iteration 3' do
       park.add_vehicle(@vehicle)
 
 
-      expect(park.minors).to eq("Bob", "Charlie", "Jude")
+      expect(park.minors).to eq(["Bob", "Charlie", "Jude"])
     end
   end
 end
