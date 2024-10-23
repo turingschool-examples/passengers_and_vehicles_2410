@@ -1,3 +1,4 @@
+require './lib/park'
 require './lib/vehicle'
 require './lib/passenger'
 
@@ -8,7 +9,7 @@ RSpec.describe Passenger do
     @charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
     @jude = Passenger.new({"name" => "Jude", "age" => 20})
     @taylor = Passenger.new({"name" => "Taylor", "age" => 12})
-    @kim = Passenger.new({"name" => "kim", "age" => 14})
+    @kim = Passenger.new({"name" => "Kim", "age" => 14})
     @alex = Passenger.new({"name" => "Alex", "age" => 34})
     @kerrin = Passenger.new({"name" => "Kerrin", "age" => 29})
     @andy = Passenger.new({"name" => "Andy", "age" => 31})
@@ -51,7 +52,7 @@ RSpec.describe Passenger do
 
     it "can admit vehicles" do
       rocky_mountain = Park.new({"name" => "Rocky Mountain National Park", "admission" => 30.00})
-      expect(rocky_mountain).to be_empty
+      expect(rocky_mountain.admitted_vehicles).to be_empty
 
       rocky_mountain.admit_vehicle(@civic)
       expect(rocky_mountain.admitted_vehicles).to eq([@civic])
@@ -72,10 +73,10 @@ RSpec.describe Passenger do
       expect(rocky_mountain.admitted_passengers).to be_empty
 
       rocky_mountain.admit_vehicle(@civic)
-      expect(rocky_mountain.admitted_passengers).to eq([@charlie, @jude, @taylor, @kim])
+      expect(rocky_mountain.admitted_passengers).to eq(["Charlie", "Jude", "Taylor", "Kim"])
 
       rocky_mountain.admit_vehicle(@impreza)
-      expect(rocky_mountain.admitted_passengers).to eq([@charlie, @jude, @taylor, @kim, @alex, @kerrin, @andy])
+      expect(rocky_mountain.admitted_passengers).to eq(["Charlie", "Jude", "Taylor", "Kim", "Alex", "Kerrin", "Andy"])
     end
   end
 

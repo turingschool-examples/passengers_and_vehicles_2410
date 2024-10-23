@@ -13,6 +13,16 @@ class Park
 
   def admit_vehicle(vehicle)
     @admitted_vehicles << vehicle
+
+    passengers = vehicle.passengers 
+    admit_passengers(passengers)
   end
+
+  def admit_passengers(passengers)
+    passengers.each do |passenger|
+      @admitted_passengers << passenger.name
+    end
+  end
+
   
 end
