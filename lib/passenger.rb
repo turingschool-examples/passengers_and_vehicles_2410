@@ -6,5 +6,11 @@ class Passenger
         @age = passenger_data["age"]
     end
 
-    
+    def adult?
+        if @age >=  18
+            true
+        else
+            false
+        end
+    end
 end
