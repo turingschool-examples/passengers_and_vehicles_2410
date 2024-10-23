@@ -12,4 +12,8 @@ class NationalPark
     @entered_vehicles = []
     @revenue = 0
   end
+
+  def add_vehicle(vehicle)
+    @entered_vehicles << vehicle
+  end
 end
