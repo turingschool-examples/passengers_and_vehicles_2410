@@ -22,10 +22,7 @@ class Vehicle
     end
 
     def num_adults
-        num_adults = 0
-        if @passengers.adult?
-            num_adults += 1
-        end
+        @passengers.count { |passenger| passenger.adult? }
     end
 
 end
