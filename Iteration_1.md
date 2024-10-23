@@ -180,4 +180,17 @@ pry(main)> charlie.drive
 pry(main)> charlie.driver?
 # => true
 ```
+# Breakdown of the New Test Cases:
+### 1. Initialization Test:
 
+- Ensures that the `Passenger` class can successfully create instances and assigns the correct attributes (`name` and `age`).
+- Validates both `charlie` and `taylor` objects, ensuring that their attributes are correctly stored.
+
+### 2. Adult Method Test:
+
+- Tests the `adult?` method by verifying if passengers 18 years or older return `true` and passengers under 18 return `false`.
+
+### 3. Driver Method Test:
+
+- Checks the initial state of the `driver?` method (should be `false`).
+- After calling `drive`, it ensures the `driver?` method returns `true`, indicating the passenger is now a driver.
