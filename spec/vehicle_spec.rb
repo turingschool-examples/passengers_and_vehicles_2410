@@ -39,6 +39,7 @@ RSpec.describe Vehicle do
 
   describe '#add_passenger' do
     it 'adds a specific passenger to the list of passengers' do
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
       charlie = Passenger.new({"name" => "Charlie", "age" => 18})
       jude = Passenger.new({"name" => "Jude", "age" => 20})
       taylor = Passenger.new({"name" => "Taylor", "age" => 12})
