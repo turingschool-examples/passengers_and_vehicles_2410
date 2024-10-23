@@ -1,17 +1,19 @@
 class Park 
-    attr_accessor :name, :admission, :vehicles, :passengers, :admission_collected
+    attr_accessor :name, :admission, :vehicles, :visitors, :admission_collected
 
     def initialize(name, admission)
         @name = name
         @admission = admission
         @vehicles = []
-        @passengers = []
+        @visitors = []
         @admission_collected = 0
     end
 
-    def admit_vehicle
+    def admit_vehicle(vehicle)
+        @vehicles << vehicle
     end
 
-    def admit_passenger
+    def admit_passengers(vehicle)
+        @vistors << vehicle.passengers
     end     
 end
