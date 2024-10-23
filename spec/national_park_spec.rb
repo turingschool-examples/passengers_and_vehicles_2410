@@ -136,8 +136,7 @@ RSpec.describe NationalPark do
   context 'all lists must be alphabetical' do
     before(:each) do
       @park = NationalPark.new({name: 'Acadia', admission: 30})
-      vehicle1 = Vehicle.new("2001", "Honda", "Civic")
-      vehicle2 = Vehicle.new("2024", "Honda", "Civic")
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
       charlie = Passenger.new({"name" => "Charlie", "age" => 18})
       jude = Passenger.new({"name" => "Jude", "age" => 20})
       taylor = Passenger.new({"name" => "Taylor", "age" => 12})
