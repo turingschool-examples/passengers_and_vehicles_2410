@@ -132,4 +132,38 @@ RSpec.describe NationalPark do
       end
     end
   end
+
+  context 'all lists must be alphabetical' do
+    before(:each) do
+      @park = NationalPark.new({name: 'Acadia', admission: 30})
+      vehicle1 = Vehicle.new("2001", "Honda", "Civic")
+      vehicle2 = Vehicle.new("2024", "Honda", "Civic")
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+      vehicle.add_passenger(charlie)
+      vehicle.add_passenger(taylor)
+      vehicle.add_passenger(jude)
+      @park.add_vehicle(vehicle)
+    end
+
+    describe '#list_everyone' do
+      it 'lists all passengers in the park list by name' do
+        expect(@park.list_everyone).to eq(['Charlie', 'Jude', 'Taylor'])
+      end
+    end
+
+    describe '#list_minors' do
+      it 'lists all minors by name' do
+        expect(@park.list_minors).to eq(['Taylor'])
+      end
+    end
+
+    describe '#list_adults' do
+      it 'lists all adults by name' do
+        expect(@park.list_adults).to eq(['Charlie', 'Jude'])
+      end
+    end
+  end
 end
