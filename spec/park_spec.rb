@@ -88,13 +88,84 @@ RSpec.describe Passenger do
 
     it "can calculate revenue with each admitted vehicle" do
       rocky_mountain = Park.new({"name" => "Rocky Mountain National Park", "admission" => 30.00})
-      expect(rocky_mountain).to eq(0.00)
+      expect(rocky_mountain.revenue).to eq(0.00)
 
       rocky_mountain.admit_vehicle(@civic)
       expect(rocky_mountain.revenue).to eq(30.00)
 
       rocky_mountain.admit_vehicle(@impreza)
       expect(rocky_mountain.revenue).to eq(60.00)
+    end
+  end
+
+  describe "#track_attendees" do
+    before(:each) do
+      @rocky_mountain = Park.new({"name" => "Rocky Mountain National Park", "admission" => 30.00})
+      @civic.add_passenger(Passenger.new({"name" => "Mazie", "age" => 7}))
+    end
+    describe "#alphabetize" do
+      it "has all_attendees default to empty" do 
+        expect(@rocky_mountain.all_attendees).to be_empty
+      end
+
+      it "can add attendees to abc_attendees from admitted_passengers" do
+        @rocky_mountain.admit_vehicle(@civic)
+        @rocky_mountain.admit_vehicle(@impreza)
+        expect(@rocky_mountain.abc_attendees.length).to eq(@rocky_mountain.admitted_passengers.length)
+      end
+
+      it "can alphabetize abc_attendees" do
+        @rocky_mountain.admit_vehicle(@civic)
+        expect(@rocky_mountain.abc_attendees).to eq(["Charlie", "Jude", "Kim", "Mazie", "Taylor"])
+
+        @rocky_mountain.admit_vehicle(@impreza)
+        expect(@rocky_mountain.abc_attendees).to eq(["Alex", "Andy", "Charlie", "Jude", "Kerrin", "Kim", "Mazie", "Taylor"])
+      end
+    end
+
+    describe "#minor_attendees" do
+      it "has minor_attendees default to empty" do
+        expect(@rocky_mountain.minor_attendees).to be_empty
+      end
+
+      it 'can add all minors from admitted_passengers' do
+        expect(@rocky_mountain.minor_attendees).to be_empty
+
+        @rocky_mountain.admit_vehicle(@civic)
+        @rocky_mountain.admit_vehicle(@impreza)
+
+        expect(@rocky_mountain.minor_attendees.length).to eq(3)
+      end
+
+      it 'can alphabetize minor_attendees' do
+        @rocky_mountain.admit_vehicle(@civic)
+        @rocky_mountain.admit_vehicle(@impreza)
+
+        expect(@rocky_mountain.minor_attendees).to eq(["Kim", "Mazie", "Taylor"])
+      end
+    end
+
+    describe "#adult_attendees" do
+      it "has adult_attendees dafault to empty" do
+        expect(@rocky_mountain.adult_attendees).to be_empty
+      end
+
+      it "can add all adults from admitted_passengers" do
+        expect(@rocky_mountain.minor_attendees).to be_empty
+
+        @rocky_mountain.admit_vehicle(@civic)
+        @rocky_mountain.admit_vehicle(@impreza)
+
+        expect(@rocky_mountain.adult_attendees.length).to eq(5)
+      end
+
+      it "can alphabetize adult_attendees" do
+        @rocky_mountain.admit_vehicle(@civic)
+        expect(@rocky_mountain.adult_attendees).to eq(["Charlie", "Jude"])
+
+        @rocky_mountain.admit_vehicle(@impreza)
+        expect(@rocky_mountain.adult_attendees).to eq(["Alex", "Andy", "Charlie", "Jude", "Kerrin"])
+      end
     end
   end
 end
