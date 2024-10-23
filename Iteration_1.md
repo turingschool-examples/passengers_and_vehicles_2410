@@ -135,8 +135,18 @@ This class encapsulates the key attributes (`name`, `age`) and behaviors (`adult
 ## TDD Process
 
 ## Test Failures and Fixes
-1. **Test**:
-   - **Failure Reason**: 
+1. **Test**: `rspec`
+   - **Failure Reason**: Passed
+Passenger
+  #initialization
+    exists and has attributes
+  #adult?
+    determines if the passenger is an adult based on age
+  #driver?
+    determines if the passenger is a driver and can change driving status
+
+Finished in 0.00169 seconds (files took 0.10293 seconds to load)
+3 examples, 0 failures
    - **Fix**: 
 
 2. **Test**: 
