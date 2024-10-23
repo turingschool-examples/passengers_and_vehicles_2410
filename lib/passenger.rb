@@ -22,8 +22,3 @@ class Passenger
     end
 
 end
-
-# charlie = Passenger.new({"name" => "Charlie", "age" => 18})    
-# taylor = Passenger.new({"name" => "Taylor", "age" => 12}) 
-
-# binding.pry
