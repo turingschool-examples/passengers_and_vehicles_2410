@@ -32,4 +32,14 @@ class NationalPark
   def generate_revenue
     @revenue += @admission
   end
+
+  def list_everyone
+    everyone = []
+
+    @entered_passengers.each do |passenger|
+      everyone << passenger.name
+    end
+
+    everyone.sort
+  end
 end
