@@ -15,5 +15,13 @@ class NationalPark
 
   def add_vehicle(vehicle)
     @entered_vehicles << vehicle
+
+    vehicle.passengers.each do |passenger|
+      add_passenger(passenger)
+    end
+  end
+
+  def add_passenger(passenger)
+    @entered_passengers << passenger
   end
 end
