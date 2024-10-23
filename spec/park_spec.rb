@@ -59,6 +59,78 @@ RSpec.describe Park do
     end
   end
 
+  # Test listing all attendees
+  describe "#all_attendees" do
+    it "returns a list of names of all passengers sorted alphabetically" do
+      park = Park.new("Yellowstone", 25)
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+
+      # Create three passengers with different ages
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+      # Add passengers to the vehicle
+      vehicle.add_passenger(charlie)
+      vehicle.add_passenger(jude)
+      vehicle.add_passenger(taylor)
+
+      # Add the vehicle to the park
+      park.add_vehicle(vehicle)
+
+      # Ensure that all attendees' names are listed alphabetically
+      expect(park.all_attendees).to eq(["Charlie", "Jude", "Taylor"])
+    end
+  end
+
+  # Test listing minors in the park
+  describe "#minors" do
+    it "returns a list of minors sorted alphabetically" do
+      park = Park.new("Yellowstone", 25)
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+
+      # Create three passengers with different ages
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+      # Add passengers to the vehicle
+      vehicle.add_passenger(charlie)
+      vehicle.add_passenger(jude)
+      vehicle.add_passenger(taylor)
+
+      # Add the vehicle to the park
+      park.add_vehicle(vehicle)
+
+      # Ensure that minors' names are listed alphabetically
+      expect(park.minors).to eq(["Taylor"])
+    end
+  end
+
+  # Test listing adults in the park
+  describe "#adults" do
+    it "returns a list of adults sorted alphabetically" do
+      park = Park.new("Yellowstone", 25)
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+
+      # Create three passengers with different ages
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+      # Add passengers to the vehicle
+      vehicle.add_passenger(charlie)
+      vehicle.add_passenger(jude)
+      vehicle.add_passenger(taylor)
+
+      # Add the vehicle to the park
+      park.add_vehicle(vehicle)
+
+      # Ensure that adults' names are listed alphabetically
+      expect(park.adults).to eq(["Charlie", "Jude"])
+    end
+  end
+
   # Test calculating the total revenue based on adult passengers
   describe "#revenue" do
     it "calculates revenue based on the number of adult passengers" do
