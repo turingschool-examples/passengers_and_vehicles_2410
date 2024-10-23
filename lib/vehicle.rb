@@ -18,4 +18,11 @@ class Vehicle
             @speeding = true
         end
     end
+
+    def add_passenger(passenger)
+        @passengers << passenger
+    end
+
+    def num_adults
+    end
 end
