@@ -23,5 +23,13 @@ class NationalPark
 
   def add_passenger(passenger)
     @entered_passengers << passenger
+
+    if passenger.adult?
+      generate_revenue
+    end
+  end
+
+  def generate_revenue
+    @revenue += @admission
   end
 end
