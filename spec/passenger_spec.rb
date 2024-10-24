@@ -10,5 +10,15 @@ RSpec.describe Passenger do
       charlie = Passenger.new({"name" => "Charlie", "age" => 18})  
       expect(charlie).to be_a Passenger
     end
-  end
+
+    it "has a name" do 
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})  
+      expect(charlie.name).to eq "Charlie"
+    end
+
+    it "has an age" do 
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})  
+      expect(charlie.age).to eq 18
+    end
+  end 
 end
