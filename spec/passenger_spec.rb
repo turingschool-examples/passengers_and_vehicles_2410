@@ -37,7 +37,4 @@ RSpec.describe Passenger do
       expect(jude.driver?).to eq false
     end
   end
-
-
-
 end
